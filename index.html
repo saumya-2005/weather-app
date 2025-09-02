@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClimaView: Weather App</title>
+  <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/4052/4052984.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+</head>
+<body>
+<div>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-light">
+    <div class="container">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" id="logo">CLIMAVIEW</a>
+          </li>
+        
+          </a>
+    
+          </li>
+       
+        </ul>
+        <form class="d-flex" role="search">
+          <input id="city" class="form-control me-2" type="search" placeholder="Search for location"
+            aria-label="Search" />
+          <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Welcome to your city -->
+
+  <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="location display-4 fw-normal text-body-emphasis">Weather for <span id="cityName"></span></h1>
+  </div>
+
+  <div class="container ">
+    <main>
+      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm" id="temperatureBox">
+            <div class="card-header py-3">
+              <h4 class="temp my-0 fw-normal font-bold   transition: background-color 0.4s ease-in-out;"><i
+                  class="bi bi-thermometer-half me-2"></i>TEMPRATURE</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"><span id="temp_c2"></span><small
+                  class="text-body-secondary fw-light"><span>&#8451;</span></small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>
+                  <img id="conditionIcon" alt="" class="me-2" />
+                  <div id="cloud" class="fw-medium"></div>
+                
+                </li>
+                <li class="font-bold">Feels Like <span id="feelslike_c"></span><span>&deg;
+                  </span></li>
+                <li>Visibility <span id="vis_km"></span><span>km</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm" id="humidityContainer">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal"><i class="bi-moisture me-2"></i>HUMIDITY</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"><span id="humidity2"></span><small
+                  class="text-body-secondary fw-light"><span>%</span></small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Dew point <span id="dewpoint_c"></span></li>
+                <li>UV Index <span id="uv"></span></li>
+                <li>Precipitation <span id="precip_mm"></span></li>
+                <li>Pressure <span id="pressure_mb"></span><span>mb</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm " id="windContainer">
+            <div class="card-header py-3 ">
+              <h4 class="my-0 fw-normal"><i class="bi bi-wind"></i> WIND</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"><span id="wind_kph2"></span><small
+                  class="text-body-secondary fw-light"><span> km/hr</span></small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Wind Gust  <span id="gust_kph"></span></li>
+                <li>Wind Direction  <span id="wind_dir"></span></li>
+                <li>Wind Chill  <span id="windchill_c"></span></li>
+                <li>Heat  <span id="heatindex_c"></span><span>&#8451;</span></li>
+              </ul>
+              <ul class="list-unstyled mt-3 mb-4">
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  <!-- Weather Overview Table -->
+<section id="overview" style="margin: 2rem;">
+   
+  <div class="table-responsive">
+   <h2>City-wise Weather Overview</h2>
+  <table class="border-black text-center background-"  cellpadding="10" cellspacing="0" style="width: 100%; text-align: center;">
+    <thead style="background-color: #f0f0f0;">
+      <tr>
+        <th>City</th>
+        <th>Temperature (°C)</th>
+        <th>Humidity (%)</th>
+        <th>Wind (km/h)</th>
+        <th>Condition</th>
+        <th>Visibility (km)</th>
+        <th>Last Updated</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id="Kanpur-row">
+        <td>Kanpur</td><td class="temp"></td><td class="humidity"></td><td class="wind"></td>
+        <td class="condition"></td><td class="visibility"></td><td class="last-updated"></td>
+      </tr>
+      <tr id="Delhi-row">
+        <td>Delhi</td><td class="temp"></td><td class="humidity"></td><td class="wind"></td>
+        <td class="condition"></td><td class="visibility"></td><td class="last-updated"></td>
+      </tr>
+      <tr id="Lucknow-row">
+        <td>Lucknow</td><td class="temp"></td><td class="humidity"></td><td class="wind"></td>
+        <td class="condition"></td><td class="visibility"></td><td class="last-updated"></td>
+      </tr>
+      <tr id="Bengaluru-row">
+        <td>Bengaluru</td><td class="temp"></td><td class="humidity"></td><td class="wind"></td>
+        <td class="condition"></td><td class="visibility"></td><td class="last-updated"></td>
+      </tr>
+      <tr id="Mumbai-row">
+        <td>Mumbai</td><td class="temp"></td><td class="humidity"></td><td class="wind"></td>
+        <td class="condition"></td><td class="visibility"></td><td class="last-updated"></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- Footer -->
+  <div class='footer'>
+    Copyright &copy; www.saumya.com | All rights reserved
+  </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+</html>
