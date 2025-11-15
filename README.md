@@ -41,6 +41,7 @@
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/your-username/weather-app.git
+   git clone https://github.com/saumya-2005/weather-app.git
 
 ![Solo Developer](https://img.shields.io/badge/developer-Saumya%20Kushwaha-blueviolet?style=flat-square)
+
